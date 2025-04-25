@@ -127,7 +127,7 @@ footer {
 .movie-grid-booking {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.7rem;
+    gap: 1rem;
     justify-content: center;
 }
 .movie-item,
