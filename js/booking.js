@@ -1,5 +1,44 @@
 let cart = [];
+const movieOptions = {
+    action: [
+        { title: "Mission X", price: 1000 },
+        { title: "War Zone", price: 1100 },
+        { title: "Bullet Rush", price: 1050 },
+    ],
+    scifi: [
+        { title: "Star Voyage", price: 1200 },
+        { title: "Future Shock", price: 1250 },
+        { title: "Galaxy Run", price: 1190 },
+    ],
+    romance: [
+        { title: "Love Line", price: 1500 },
+        { title: "Forever Us", price: 1400 },
+    ],
+    fantasy: [
+        { title: "Dragon Realms", price: 1300 },
+        { title: "Wizards World", price: 1350 },
+    ],
+    family: [
+        { title: "Happy Family", price: 1800 },
+        { title: "Fun Time", price: 1700 },
+    ]
+};
 
+function updateMovies() {
+    const type = document.getElementById("movie-type").value;
+    const movieSelect = document.getElementById("movie");
+
+    movieSelect.innerHTML = '<option value="">--Select a movie--</option>';
+
+    if (movieOptions[type]) {
+        movieOptions[type].forEach(movie => {
+            const option = document.createElement("option");
+            option.value = `${movie.title}|${movie.price}`;
+            option.textContent = `${movie.title} - Rs. ${movie.price}`;
+            movieSelect.appendChild(option);
+        });
+    }
+}
 function addToCart() {
     const movieSelect = document.getElementById('movie');
     const quantityInput = document.getElementById('quantity');
