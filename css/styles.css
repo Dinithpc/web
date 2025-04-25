@@ -127,7 +127,7 @@ footer {
 .movie-grid-booking {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.7rem;
+    gap: 1.5rem;
     justify-content: center;
 }
 .movie-item,
@@ -425,6 +425,29 @@ iframe {
     display: block;
 }
 
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 32, 32, 0.2);
+    }
+    40% {
+        transform: translate(-50%, -50%) scale(1.02);
+        box-shadow: 0 0 15px 5px rgba(255, 32, 32, 0.3);
+    }
+    60% {
+        transform: translate(-50%, -50%) scale(1.03);
+        box-shadow: 0 0 25px 10px rgba(255, 32, 32, 0.35);
+    }
+    80% {
+        transform: translate(-50%, -50%) scale(1.02);
+        box-shadow: 0 0 15px 5px rgba(255, 32, 32, 0.3);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 32, 32, 0.2);
+    }
+}
+
 .book-button {
     position: absolute;
     top: 50%;
@@ -439,12 +462,10 @@ iframe {
     text-decoration: none;
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 1px;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    animation: pulse 1s infinite ease-in-out;
 }
 
-.book-button:hover {
-    background-color: #e61c1c;
-}
 .card-details-row {
     display: flex;
     gap: 1rem;
