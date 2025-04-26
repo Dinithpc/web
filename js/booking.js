@@ -23,6 +23,26 @@ const movieOptions = {
         { title: "Fun Time", price: 1700 },
     ]
 };
+const itemsPerPage = 6;
+  let currentPage = 1;
+
+  const movieGrid = document.getElementById('movieGrid');
+  const allItems = Array.from(movieGrid.children);
+  const totalPages = Math.ceil(allItems.length / itemsPerPage);
+
+  function showPage(page) {
+    if (page < 1 || page > totalPages) return;
+    currentPage = page;
+    allItems.forEach((item, index) => {
+      item.style.display = (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) ? 'block' : 'none';
+    });
+    document.getElementById('pageIndicator').textContent = `Page ${page}`;
+  }
+
+  function changePage(delta) {
+    showPage(currentPage + delta);
+  }
+  showPage(currentPage);
 
 function updateMovies() {
     const type = document.getElementById("movie-type").value;
