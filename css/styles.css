@@ -230,7 +230,7 @@ th, td {
     color: white;
     border: none;
     border-radius: 4px;
-    cursor: pomer;
+    cursor: pointer;
 }
 
 .form-container button:hover {
